@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Parameters -->
+  <arg name = "config_path" default = "$(find rise)/config/coloradar_outdoor6_b.yaml" />
+  <arg name = "dataset" default = "coloradar"/>   <!-- coloradar / ntu -->
+  <arg name = "bag_path" default = "$(find rise)/../../../../dataset/ColoRadar/outdoors_run6.bag"/>
+  <arg name = "output_path" default = "$(find rise)/data/outdoors_run6"/>
+  <arg name = "gt_file_path" default = "/none"/>
+
+  <!-- radar_preprocessing_nodelet -->
+  <node pkg="rise" type="rise_for_serial" name="rise_for_serial" output="screen" clear_params="true" required="true">
+    <!-- ground truth publication -->
+    <!-- launch-prefix="gdb -ex run **args" -->
+    <param name="dataset" type="str" value="$(arg dataset)" />
+    <param name="config_path" type="str" value="$(arg config_path)" />
+    <param name="bag_path" type="str" value="$(arg bag_path)" />
+    <param name="gt_file_path" type="str" value="$(arg gt_file_path)" />
+    <param name="output_path" type="str" value="$(arg output_path)" />
+    <param name="display_map" type="bool" value="true" />
+  </node>
+
+</launch>

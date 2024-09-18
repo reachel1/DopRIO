@@ -1,0 +1,60 @@
+%YAML:1.0
+
+# Topics
+radar_topic: "/mmWaveDataHdl/RScan" # Point cloud data <!-- pc2_raw inlier_pc2 segmented -->
+imu_topic: "/gx5/imu/data" #IMU data
+
+# RISE Init Cov Settings
+Pos: 1.25e-09 #1.25e-09
+Vel: 1.0e-03
+RollPitch: 1.0e-06 #1.0e-06(outdoor3)
+Yaw: 1.0e-06 #
+BiasGyr: 1.0e-06 #4.87e−7
+BiasAcc: 1.0e-06 #3.84e−4 (6 1e-6)
+RotExt: 1.0e-8
+PosExt: 1.0e-8
+
+# IMU Settings(0.002449, 0.00087266, 0.00000653777, 0.00186168)
+imuAccNoise: 0.0023486 # 0.002349(0.908 1.616) 0.0023486(0.897 1.535)
+imuGyrNoise: 0.000872668 # 0.00087266(0.897 1.535)  0.00087264(0.871 1.848)
+imuAccBias: 0.00000453799 # 0.00000453804 0.00000453803  0.00000453802 0.00000453801 0.00000453799 
+imuGyrBias: 0.00186168 # 0.00186168
+imuGravity: 9.796 #9.796
+imuInitVel: 0.01 
+
+# 4dRadar Settings
+rangeCov: 0.05       #m   resolution 0.12 #0.05
+azimuthCov: 0.5      #deg resolution 1 #0.5
+elevationCov: 10.0    #deg resolution 22.5 #10.0
+dopplerCov: 0.10     #m/s resolution 0.25  #0.10
+PointUpdateTh: 0.98   #percent #0.975
+
+# Filter Settings
+minRange: 0.5
+maxRange: 15.0
+maxDoppler: 0.025
+minIntensity: 0.20 #0.20
+NeighborRange: -1.0
+NeighborNum: 0.0
+NeighborStd: 0.0
+
+# NDT Settings
+max_iteration: 10     #最大迭代次数
+voxel_size: 0.5    #体素大小
+eps: 0.0001    #收敛判定条件
+res_outlier_th: 1.0   #异常值拒绝阈值
+dop_outlier_th: 0.2 
+capacity: 15000    #缓存的体素数量 15000
+kf_distance: 0.3     #关键帧距离
+kf_angle_deg: 5     #旋转角度
+kf_frame: 10     #旋转角度
+
+# Calibs
+T_Radar_to_Imu: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ 0.99999995, 0.00079265,  0.00059265,  0.02995821,
+           0.00079265, -0.99999969,  0.00000000, 0.12002374,
+          -0.00059265, 0.00000047, -0.99999982,  -0.08998226,
+           0.00000000, 0.00000000,  0.00000000,  1.00000000]

@@ -1,0 +1,61 @@
+%YAML:1.0
+
+# Topics
+radar_topic: "/radar_enhanced_pcl" # Point cloud data <!-- pc2_raw inlier_pc2 segmented -->
+imu_topic: "/vectornav/imu" #IMU data
+
+# RISE Init Cov Settings(ntu_loop3在vndt和dndt时可使用该参数)
+Pos: 0.0
+Vel: 1.0e-05
+RollPitch: 1.0e-06 
+Yaw: 1.0e-06 
+BiasGyr: 1.0e-08
+BiasAcc: 1.0e-08
+RotExt: 1.0e-10
+PosExt: 1.0e-10
+
+# IMU Settings
+imuAccNoise: 0.1781160035059417 # 0.1781160035059417（ntuloop3效果好，2的航向角不行）（0.12会往内扣，稍微好一点）
+imuGyrNoise: 0.000011667951042710442 # 0.00011667951042710442 0.000011667951042710442(ntuloop3效果好，2的航向角不行)
+imuAccBias: 0.00011782392708033614 # 0.00011782392708033614
+imuGyrBias: 0.00002616129872371749 # 2.616129872371749e-06 2.616129872371749e-05(ntuloop2的z轴更好但并不太能影响航向角)
+imuGravity: 9.80511
+imuInitVel: 0.01 
+
+# 4dRadar Settings
+rangeCov: 0.10        # m  accuarcy 0.16 #0.16
+azimuthCov: 0.25        #deg resolution 0.5 #0.25
+elevationCov: 0.5        #deg resolution 1 #0.5
+dopplerCov: 5.0       #m/s accuarcy 0.15 #0.15
+PointUpdateTh: 1.0   #percent （0.95效果非常好，前期几乎贴着，但那个夹角弯还是过不去） # ntuloop3需要0.95 #ntuloop2是1.0
+
+# Filter Settings
+minRange: 5.0
+maxRange: 300.0
+maxDoppler: 0.1
+minIntensity: 0.2
+NeighborRange: 1.0
+NeighborNum: 2
+NeighborStd: 0.75
+
+# NDT Settings
+max_iteration: 30    #最大迭代次数
+voxel_size: 1.5      #体素大小
+eps: 0.000001    #收敛判定条件
+res_outlier_th: 15.0   #异常值拒绝阈值 5.0效果很好，但是最后会飞掉
+dop_outlier_th: 1.0  #0.3
+capacity: 100000      #缓存的体素数量
+kf_distance: 0.1     #关键帧距离
+kf_angle_deg: 5     #旋转角度
+kf_frame: 10
+
+
+# Calibs
+T_Radar_to_Imu: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [0.999735807578, -0.0215215701795, -0.0081643477385, 0.13761019052125,
+         -0.02148120581797, -0.9997581134183, 0.00502853428037, 0.3176955976234, # -0.13
+         -0.00826995351904, -0.0048509797951, -0.99995400578406, 0.05898352725152,
+          0.0, 0.0, 0.0, 1.0]

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>rise</name>
+  <version>0.0.0</version>
+  <description>The 4d radar and inertial fusion</description>
+
+  <maintainer email="chengrui7@bit.edu.cn">chengruiqi</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>pcl_conversions</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_transport</build_depend>
+  
+  <exec_depend>pcl_ros</exec_depend>
+  <exec_depend>pcl_conversions</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>message_generation</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>image_transport</exec_depend>
+
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-scipy</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-scipy</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-progressbar</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-progressbar</exec_depend>
+
+</package>

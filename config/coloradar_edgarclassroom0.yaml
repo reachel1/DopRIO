@@ -1,0 +1,60 @@
+%YAML:1.0
+
+# Topics
+radar_topic: "/mmWaveDataHdl/RScan" #Radar data
+imu_topic: "/gx5/imu/data" #IMU data
+
+# RISE Init Cov Settings
+Pos: 1.0e-03  
+Vel: 1.0e-03
+RollPitch: 1.0e-03  
+Yaw: 1.0e-03 
+BiasGyr: 1.0e-03  
+BiasAcc: 1.0e-03   
+RotExt: 1.0e-08
+PosExt: 1.0e-08
+
+# IMU Settings
+imuAccNoise: 0.2399 #0.2399 #0.02399(w/o JU) #0.3399(w/o WD)
+imuGyrNoise: 0.0041276 
+imuAccBias: 0.000000243779 
+imuGyrBias: 0.000186168 
+imuGravity: 9.796 #9.796
+imuInitVel: 0.01 
+
+# 4dRadar Settings
+rangeCov: 0.05       #m   resolution 0.12 #0.05
+azimuthCov: 0.5      #deg resolution 1 #0.5
+elevationCov: 11.0    #deg resolution 22.5 #10.0
+dopplerCov: 0.10     #m/s resolution 0.25  #0.10
+PointUpdateTh: 0.9   #percent #0.9 #1.0(w/o UP)
+
+# Filter Settings
+minRange: 0.5
+maxRange: 15.0
+maxDoppler: 0.05
+minIntensity: 0.20  #0.20
+NeighborRange: -1.0
+NeighborNum: 0.0
+NeighborStd: 0.0
+
+# NDT Settings
+max_iteration: 10   #10 #15(w/o WF)
+voxel_size: 0.5    #0.5 #1.0(w/o UP) #1.0(w/o JU) #1.0(w/o WF)
+eps: 0.0001    
+res_outlier_th: 2.0   #2.0 #6.0(w/o WF)
+dop_outlier_th: 0.4  #0.4 #1.0(w/o WF)
+capacity: 3000    #5000(1.842 10.417) 2500(1.830 10.509) 3000(1.828 10.491)
+kf_distance: 0.3     
+kf_angle_deg: 5.0     #5.0
+kf_frame: 10
+
+# Calibs
+T_Radar_to_Imu: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ 0.99999995, 0.00079265,  0.00059265,  0.02995821,
+           0.00079265, -0.99999969,  0.00000000, 0.12002374,
+          -0.00059265, 0.00000047, -0.99999982,  -0.08998226,
+           0.00000000, 0.00000000,  0.00000000,  1.00000000]
