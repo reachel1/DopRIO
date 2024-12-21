@@ -1,4 +1,4 @@
-# RISE: A Robust 4D Millimeter-Wave Radar-Inertial State Estimator Based on Point Distribution
+# DopRIO: DopRIO: Doppler Strengthened Tightly-Coupled 4D Millimeter-Wave Radar–Inertial Odometry
 
 ## 1.Dependency
 ### 1.1 Ubuntu and Ros  
