@@ -18,7 +18,7 @@ First you need to compile it
 
 Then you can run our launch file
 
-`roslaunch rise rise_serial.launch`
+`roslaunch doprio doprio_serial.launch`
 
 ## 3.Acknowlegement
 [slam in autonomous driving](https://github.com/gaoxiang12/slam_in_autonomous_driving)
