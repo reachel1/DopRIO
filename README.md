@@ -25,3 +25,6 @@ Then you can run our launch file
 [slambook-en](https://github.com/gaoxiang12/slambook-en) , [slam in autonomous driving](https://github.com/gaoxiang12/slam_in_autonomous_driving) and [Dr. Gao Xiang](https://github.com/gaoxiang12). His SLAM tutorial and code are the starting point of our SLAM journey.
 
 [Coloradar](https://arpg.github.io/coloradar/) and [NTU4DRADLM](https://github.com/junzhang2016/NTU4DRadLM). Many thanks to all the authors of the two public datasets.
+
+## 4.Implementation Details
+Detailed explanations and additional resources will be released upon the acceptance of our paper.
