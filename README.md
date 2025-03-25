@@ -28,3 +28,7 @@ Then you can run our launch file
 
 ## 4.Implementation Details
 Detailed explanations and additional resources will be released upon the acceptance of our paper.
+
+## 5.Demo
+Demo in the Outdoors6 sequence of ColoRadar Dataset 
+![Demo](apps/pic/ourdoors6.gif)
